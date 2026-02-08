@@ -1,17 +1,22 @@
 """
-By Jeffrey Kotz - 2026
-Test for task1 for valid output
+Task 1 Test
+By Jeffrey Kotz - 2/7/2026
+Test for task1 for valid hello world output to console.
 """
+
+import pytest
 
 from task1 import hello_world
 
 def test_hello_world(capsys):
-    """
-    Test that task1 produces the output "Hello, World!"
+    """test that the hello_world function produces proper output to stdout ("Hello, World!")
 
-    :param capsys: parameter allowing stdout and stderr to be captured and read
+    Args:
+        capsys: capsys provides capture of system output for the sake of testing output
     """
 
     hello_world()
-    output = capsys.readouterr() # capture stdout output from hellowrold
-    assert output.out == "Hello, World!\n" # Assert the result of comparison between the actual output and desired result
+    # capture stdout output from helloworld
+    output = capsys.readouterr()
+    # Assert the result of comparison between the actual output and desired result
+    assert output.out == "Hello, World!\n"
