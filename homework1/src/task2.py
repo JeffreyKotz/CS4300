@@ -114,7 +114,7 @@ def bool_equals(x: int, y: int) -> bool:
 
     return x == y
 
-# Only executes if specific file is ran
+# Only executes if this specific file is ran
 if __name__ == "__main__":
     print("Demonstration: Data Type - By Jeffrey Kotz")
 

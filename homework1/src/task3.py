@@ -82,6 +82,7 @@ def sum_one_to_n(n: int) -> int:
 
     return total
 
+# Only print output if this specific file is ran
 if __name__ == "__main__":
     print("Demonstration: Control Structures - By Jeffrey Kotz")
 
