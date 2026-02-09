@@ -1,5 +1,5 @@
 """
-Task 5: File Handling
+Task 6: File Handling
 By Jeffrey Kotz - 2/8/2026
 
 Demonstrate File handling and operations

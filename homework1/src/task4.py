@@ -16,10 +16,17 @@ def calculate_discount(price, discount):
         str: the price after the discount is applied formatted to 2 decimal places for currency conventions
     """
 
-    # divide discount by 100 as it is give as a percentage
-    discount /= 100
-
-    resulting_price = price * (1 - discount)
+    # Validate that discount and price are within sane ranges
+    if (discount < 0 or discount >= 100): # discount's can't be negative, or more than 100% off
+        print("Invalid discount given, discount must be greater than 0 and less than or equal to 100")
+        resulting_price = -1
+    elif (price <= 0): # the price of an item can't be negative/zero, you don't buy things for free or gain money buying things
+        print("Ivalid price given, price must be greater than $0.00")
+        resulting_price = -1
+    else: # Valid function arguments given
+        # divide discount by 100 as it is give as a percentage
+        discount /= 100
+        resulting_price = price * (1 - discount)
 
     # Format result with a dollar sign, with value to 2 decimal places for currency
     # var_name:.nf allows for formatting to constrain to n decimal palces

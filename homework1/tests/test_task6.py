@@ -9,17 +9,15 @@ import pytest
 
 from task6 import count_words_in_file
 
-def test_count_words_in_file():
-    """test that the number of words in a file is properly counted
+# Parameterized test, with a set of a file path and an expected word count
+@pytest.mark.parametrize("file_path, expected_word_count", [("task6_read_me.txt", 104)])
+def test_count_words_in_file(file_path, expected_word_count):
+    """Test that the number of words in a file is properly counted.
+
+    Args:
+        file_path (str): the path of the file to count the words inside of
+        expected_word_count (int): the expected word count for the file to match
     """
 
-    # File path of task6 read me text file
-    FILE_PATH = "task6_read_me.txt"
-
-    # I counted the number of words using notepad++ copying and pasting the text to have it count
-    # The result was 104 words
-    NUMBER_OF_WORDS = 104
-
-    # If count_words_in_file produces the same number of words, it correctly counts the number of words
-    # in the file
-    assert count_words_in_file(FILE_PATH) == NUMBER_OF_WORDS
+    # Assert whether the number of expected words is met by the demonstrating function
+    assert count_words_in_file(file_path) == expected_word_count
