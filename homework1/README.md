@@ -19,19 +19,21 @@ pytest
 
 ## How To Execute Code
 
-### Step 1: From the cs4300 repository navigate into homework1/src directory
+### Step 1: From the cs4300 repository navigate into homework1 directory
+**All scripts assume they are run from the homework1/ directory. This is relavent for task6.py which accesses a file 1 level from it's directory. If the file is executed from the src directory it will not execute properly.**
+
 ```
-cd homework1/src/
+cd homework1/
 ```
 
 ### Step 2: Execute tasks 1 to 7 using python 3
 
 ``` 
-python3 task1.py
-python3 task2.py 
-python3 task3.py 
-python3 task4.py 
-python3 task5.py 
-python3 task6.py 
-python3 task7.py 
+python3 src/task1.py
+python3 src/task2.py 
+python3 src/task3.py 
+python3 src/task4.py 
+python3 src/task5.py 
+python3 src/task6.py 
+python3 src/task7.py 
 ```
