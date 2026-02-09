@@ -5,7 +5,7 @@ By Jeffrey Kotz - 2/7/2026
 Demonstrate use of duck typing in functions
 """
 
-def calculate_discount(price, discount):
+def calculate_discount(price, discount) -> str:
     """Using duck typing
 
     Args:
