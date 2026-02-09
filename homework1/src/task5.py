@@ -36,7 +36,7 @@ def create_student_dictionary(n) -> dict[str, int]:
 
 # Only print output when this specific file is ran
 if __name__ == "__main__":
-    print("Demonstration: Functions & Duck Typing - By Jeffrey Kotz")
+    print("Demonstration 5: Functions & Duck Typing - By Jeffrey Kotz")
 
     # A list of 6 books, each element is a tuple containing (Title, Author)
     favorite_books = [ ("1984", "George Orwell"),

@@ -38,7 +38,7 @@ if __name__ == "__main__":
     # THIS FILE PATH ASSUMES SCRIPT IS RUN FROM homework1/ directory, not homework1/src
     FILE_PATH = "task6_read_me.txt"
 
-    print("Demonstration: File Handling - By Jeffrey Kotz")
+    print("Demonstration 6: File Handling - By Jeffrey Kotz")
 
     word_count = count_words_in_file(FILE_PATH)
 

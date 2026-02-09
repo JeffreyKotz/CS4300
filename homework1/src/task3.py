@@ -84,7 +84,7 @@ def sum_one_to_n(n: int) -> int:
 
 # Only print output if this specific file is ran
 if __name__ == "__main__":
-    print("Demonstration: Control Structures - By Jeffrey Kotz")
+    print("Demonstration 3: Control Structures - By Jeffrey Kotz")
 
     # format string to interpolate result of function operations
     print("\nDemonstration of if control structure by finding the sign of values:")

@@ -36,7 +36,7 @@ def filter_containing_string(names: numpy.ndarray, string: str) -> numpy.ndarray
 
 
 if __name__ == "__main__":
-    print("Demonstration: Package Management (Using NumPy) - By Jeffrey Kotz")
+    print("Demonstration 7: Package Management (Using NumPy) - By Jeffrey Kotz")
 
     print("""\nA useful feature of NumPy, is that NumPy provides arrays data structure with contiguous memory.
 Numpy provides various useful features for arrays such as the ability to filter arrays using

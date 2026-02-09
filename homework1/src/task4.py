@@ -35,7 +35,7 @@ def calculate_discount(price, discount) -> str:
 
 # Only print output if this specific file is ran
 if __name__ == "__main__":
-    print("Demonstration: Functions & Duck Typing - By Jeffrey Kotz")
+    print("Demonstration 4: Functions & Duck Typing - By Jeffrey Kotz")
     print(f"Discount with integers: $100 with 40% discount; {calculate_discount(100, 40)}")
     print(f"Discount with integer & float: $75 with 15.5% discount: {calculate_discount(75, 15.5)}")
     print(f"Discount with floats: $33.33 with 15.5% discount: {calculate_discount(33.33, 15.5)}")

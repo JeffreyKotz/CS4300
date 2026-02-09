@@ -1,8 +1,30 @@
 ## Requirements
 Python 3.12.3
+
+### Packages/Frameworks
+
 pytest 9.0.2
 
+numpy 2.4.2
 
+## Setup
+
+### Step 1: Create virtual environment
+**Only necessary to isolate packages from other environments. As long as both pytest and numpy are installed, scripts should work**
+```
+python3 -m venv venv_name --system-site-packages
+```
+
+### Step 2: Activate virtual environent
+```
+source venv_name/bin/activate
+```
+
+### Step 3: Install pytest & numpy
+```
+python3 -m pip install pytest
+pip install numpy
+```
 
 ## How To Execute Tests
 
