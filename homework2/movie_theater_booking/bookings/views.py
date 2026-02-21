@@ -8,6 +8,8 @@ from rest_framework import permissions, viewsets, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+from django.shortcuts import get_object_or_404
+
 from bookings.models import Movie, Seat, Booking
 from bookings.serializers import (MovieSerializer,
                                   SeatSerializer,
@@ -102,9 +104,8 @@ class BookingViewSet(viewsets.ModelViewSet):
         """
         return self.list(request)
 
-    @action(detail=False, methods=['GET', 'POST'])
-    def create_booking(self, request):
-        """Create a booking, overridden from ViewSet creat method
+    def create(self, request):
+        """Create a booking, overridden from ViewSet create method
 
         Args:
             request (HttpRequest): request given with information on booking
@@ -115,7 +116,7 @@ class BookingViewSet(viewsets.ModelViewSet):
         """
 
         serializer = BookingSerializer(data=request.data)
-        response = Response({'status': status.HTTP_400_BAD_REQUEST})
+        response = Response(status=status.HTTP_400_BAD_REQUEST)
 
         # Check if valid request was made
         if serializer.is_valid():
@@ -135,11 +136,45 @@ class BookingViewSet(viewsets.ModelViewSet):
                 if not seat.booking_status:
                     seat.booking_status = True
                     seat.save()
-                    response = self.create(request)  # create the booking\
+                    serializer.create(serializer.validated_data)
+
+                    # Successful creation return code 201!
+                    response = Response(status=status.HTTP_201_CREATED)
                 else:
                     response = Response({'status': 'Seat Unavailable'})
             else:
                 response = Response({'status': f'Booking on {booking_date} is '
                                      f'before movie is released '
                                      f'on {movie.release_date}'})
+        return response
+
+    def destroy(self, request, pk):
+        """Overridden destroy method to remove booking's claim of seat after it's gone
+
+        Args:
+            request (HttpRequest): request to destroy seat
+
+        Returns:
+            Response: HTTP code indicating whether or not deletion occured
+        """
+
+        response = Response(status=status.HTTP_404_NOT_FOUND)
+
+        try:
+            booking = get_object_or_404(Booking, pk=pk)
+
+            # Restore seat status
+            seat = booking.seat
+            seat.booking_status = False
+            seat.save()
+
+            # Deleete booking
+            booking.delete()
+
+            # Return 204 on successful deletion
+            response = Response(status=status.HTTP_204_NO_CONTENT)
+        except Booking.DoesNotExist:
+            # object not found return 404
+            response = Response(status=status.HTTP_404_NOT_FOUND)
+
         return response
