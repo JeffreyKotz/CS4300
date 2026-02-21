@@ -1,6 +1,7 @@
 """
 By Jeffrey Kotz - 2/20/2026
-Models representing Movie, Seat, and Booking for the Movie Theater Booking Application
+Models representing Movie, Seat, and Booking for the Movie Theater Booking
+Application.
 """
 
 from django.db import models
@@ -47,7 +48,7 @@ class Booking(models.Model):
     # OneToOneField allows the type of the field to be specified to another.
     # on_delete=model.CASCADE indicates that when deleted, the object
     # containing the OneToOneField is also deleted.
-    movie = models.OneToOneField(Movie, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     seat = models.OneToOneField(Seat, on_delete=models.CASCADE)
     booking_date = models.DateTimeField("booking date")
 

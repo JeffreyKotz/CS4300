@@ -1,4 +1,7 @@
-"""Serializers for models used by the applicationm needed to save data in JSON format
+"""
+By Jeffrey Kotz 2/20/2026
+Serializers for models used by the applicationm needed to save data in JSON
+format
 """
 
 from rest_framework import serializers
